@@ -7,7 +7,7 @@ public class Hamer_Scissorsr {
 
     String n;
     public void input() {
-        System.out.println("Enter: ");
+        System.out.print("Enter: ");
         n = sc.next();
     }
 
@@ -18,7 +18,8 @@ public class Hamer_Scissorsr {
 
         if (n.equals(a[i])) {
             System.out.println("DRAW");
-        } if ((n.equals("bua") && a[i].equals("keo")) ||
+        }
+        else if ((n.equals("bua") && a[i].equals("keo")) ||
                 (n.equals("bao") && a[i].equals("bua")) ||
                 (n.equals("keo") && a[i].equals("bao"))) {
             System.out.println("YOU WIN");

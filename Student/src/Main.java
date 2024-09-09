@@ -38,6 +38,6 @@ public class Main {
                     StM.findStudent(name);
                     break;
             }
-        } while(option != 0);
+        } while (option != 0);
     }
 }

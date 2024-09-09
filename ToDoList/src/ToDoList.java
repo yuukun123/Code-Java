@@ -35,6 +35,23 @@ public class ToDoList {
         return completed;
     }
 
+
+    public void setTask(String task) {
+        this.task = task;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setDeadline(String deadline) {
+        this.deadline = deadline;
+    }
+
+    public void setCompleted(boolean completed) {
+        this.completed = completed;
+    }
+
     public void input(Scanner sc) {
         System.out.print("Enter task: ");
         task = sc.nextLine();

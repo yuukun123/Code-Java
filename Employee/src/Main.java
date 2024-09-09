@@ -31,10 +31,10 @@ public class Main {
                     System.out.print("Enter number of employees: ");
                     int n = sc.nextInt();
                     employee = new Employee[n];
-                    for(int i = 0; i < n; i++) {
+                    for (int i = 0; i < n; i++) {
                         employee[i] = new Employee();
                         System.out.println();
-                        System.out.println("Employee " + (i+1));
+                        System.out.println("Employee " + (i + 1));
                         employee[i].input();
                     }
                     break;
@@ -49,7 +49,7 @@ public class Main {
                     break;
                 case 3:
                     System.out.println();
-                    for(int i = 0; i < employee.length; i++){
+                    for (int i = 0; i < employee.length; i++) {
                         Arrays.sort(employee, Comparator.comparingInt(Employee::getId));
                     }
                     System.out.println("List Employee after sort: ");
@@ -64,10 +64,10 @@ public class Main {
                     System.out.print("Enter number of managers: ");
                     int m = sc.nextInt();
                     manager = new Manager[m];
-                    for(int i = 0; i < m; i++) {
+                    for (int i = 0; i < m; i++) {
                         manager[i] = new Manager();
                         System.out.println();
-                        System.out.println("Manager " + (i+1));
+                        System.out.println("Manager " + (i + 1));
                         manager[i].input();
                     }
                     break;
@@ -82,7 +82,7 @@ public class Main {
                     break;
                 case 6:
                     System.out.println();
-                    for(int i = 0; i < manager.length; i++){
+                    for (int i = 0; i < manager.length; i++) {
                         Arrays.sort(manager, Comparator.comparingInt(Manager::getId));
                     }
                     System.out.println("List Manager after sort: ");
@@ -95,7 +95,7 @@ public class Main {
                 default:
                     System.out.println("Invalid option!");
             }
-        } while(true);
+        } while (true);
 
     }
 }

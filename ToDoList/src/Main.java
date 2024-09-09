@@ -1,12 +1,15 @@
 import java.util.Scanner;
+import java.io.IOException;
+
 
 public class Main {
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         boolean found = false;
         ToDoList[] todo = null;
         int option;
-        do{
+        do {
             System.out.println();
             System.out.println();
             System.out.println("==========MENU==========");
@@ -17,19 +20,19 @@ public class Main {
             System.out.println("5. Delete ToDoList");
             System.out.println("0. Exit");
             System.out.print("Enter option: ");
-            option= sc.nextInt();
+            option = sc.nextInt();
             sc.nextLine();
-            switch(option){
+            switch (option) {
                 case 1:
                     System.out.println();
                     System.out.print("Enter number of ToDoList: ");
                     int n = sc.nextInt();
                     sc.nextLine();
                     todo = new ToDoList[n];
-                    for(int i = 0; i < n; i++){
+                    for (int i = 0; i < n; i++) {
                         todo[i] = new ToDoList();
                         System.out.println();
-                        System.out.println("Enter ToDoList " + (i+1));
+                        System.out.println("Enter ToDoList " + (i + 1));
                         todo[i].input(sc);
                     }
                     break;
@@ -42,39 +45,37 @@ public class Main {
                     int cnt_yes = 0;
                     boolean complete = false;
                     toDo0.show();
-                        if(todo == null || todo.length == 0){
-                            System.out.println();
-                            System.out.println("Your list is empty");
-                        }
-                        else {
-                            for (int i = 0; i < todo.length; i++) {
-                                if (todo[i] != null && !(todo[i].getCompleted())) {
-                                    cnt_not++;
-                                    complete = true;
-
-                                }
-                                if(todo[i] != null && (todo[i].getCompleted())) {
-                                    cnt_yes++;
-                                    complete = false;
-                                }
+                    if (todo == null || todo.length == 0) {
+                        System.out.println();
+                        System.out.println("Your list is empty");
+                    } else {
+                        for (int i = 0; i < todo.length; i++) {
+                            if (todo[i] != null && !(todo[i].getCompleted())) {
+                                cnt_not++;
+                                complete = true;
 
                             }
-                            for (int i = 0; i < todo.length; i++) {
-                                if (todo[i] != null) {
-                                    System.out.println();
-                                    System.out.printf("%s %42d. %11s  %42s\n", '+', i + 1, todo[i].getTask().toUpperCase(), '+');
-                                    todo[i].print();
-                                }
+                            if (todo[i] != null && (todo[i].getCompleted())) {
+                                cnt_yes++;
+                                complete = false;
                             }
 
                         }
+                        for (int i = 0; i < todo.length; i++) {
+                            if (todo[i] != null) {
+                                System.out.println();
+                                System.out.printf("%s %42d. %11s  %42s\n", '+', i + 1, todo[i].getTask().toUpperCase(), '+');
+                                todo[i].print();
+                            }
+                        }
+
+                    }
                     toDo0.show();
                     System.out.println();
-                    if(complete && cnt_not > 0) {
+                    if (complete && cnt_not > 0) {
                         System.out.println();
                         System.out.println("You have " + cnt_not + " task not completed ");
-                    }
-                    else if(!complete && cnt_yes > 0) {
+                    } else if (!complete && cnt_yes > 0) {
                         System.out.println();
                         System.out.println("You have " + cnt_yes + " task completed ");
                     }
@@ -83,7 +84,7 @@ public class Main {
                     System.out.println();
                     ToDoList toDo1 = new ToDoList();
 
-                    if(todo == null || todo.length == 0){
+                    if (todo == null || todo.length == 0) {
                         toDo1.show();
                         System.out.println();
                         System.out.println("Your list is empty");
@@ -91,7 +92,7 @@ public class Main {
                     }
 
                     System.out.println();
-                    if(todo != null) {
+                    if (todo != null) {
                         System.out.print("Enter task to find: ");
                         toDo1.search();
 
@@ -126,14 +127,14 @@ public class Main {
                     ToDoList toDo2 = new ToDoList();
 
                     toDo2.show();
-                    if(todo == null || todo.length == 0){
+                    if (todo == null || todo.length == 0) {
                         System.out.println();
                         System.out.println("Your list is empty");
                     }
                     toDo2.show();
 
                     System.out.println();
-                    if(todo != null) {
+                    if (todo != null) {
                         System.out.print("Enter task want to update: ");
                         toDo2.search();
                         found = false;
@@ -155,14 +156,14 @@ public class Main {
                     ToDoList toDo5 = new ToDoList();
 
                     toDo5.show();
-                    if(todo == null || todo.length == 0){
+                    if (todo == null || todo.length == 0) {
                         System.out.println();
                         System.out.println("Your list is empty");
                     }
                     toDo5.show();
 
-                    if(todo != null) {
-                        for(int i = 0; i < todo.length; i++) {
+                    if (todo != null) {
+                        for (int i = 0; i < todo.length; i++) {
                             if (todo[i] != null) {
                                 System.out.println();
                                 System.out.printf("%s %42d. %11s  %42s\n", '+', i + 1, todo[i].getTask().toUpperCase(), '+');
@@ -170,7 +171,7 @@ public class Main {
                             }
                         }
 
-                    toDo5.show();
+                        toDo5.show();
 
                         System.out.println();
                         System.out.println();
@@ -216,6 +217,6 @@ public class Main {
                 default:
                     System.out.println("Invalid option!");
             }
-        }while(true);
+        } while (true);
     }
 }
