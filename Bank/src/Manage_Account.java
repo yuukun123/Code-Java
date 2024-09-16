@@ -4,10 +4,11 @@ import java.util.Set;
 import java.util.*;
 
 
-public class Manage_Account {
+public class Manage_Account implements Manage_Funtion {
+
     private ArrayList<Account> accList;
 
-    public Manage_Account() {
+    private Manage_Account() {
         accList = new ArrayList<>(10);
     }
 
@@ -15,6 +16,7 @@ public class Manage_Account {
         accList.add(acc);
     }
 
+    @Override
     public void addList(Scanner sc) {
         Account acc;
         System.out.println();
@@ -31,6 +33,7 @@ public class Manage_Account {
         }
     }
 
+    @Override
     public void showList() {
         System.out.println();
         System.out.printf("+ %-20s | %-20s | %-20s +\n", "Account Number", "Account Name", "Amount");
@@ -39,6 +42,7 @@ public class Manage_Account {
         }
     }
 
+    @Override
     public boolean findAccount_Name(String name) {
         for(Account acc : accList) {
             if(name.equals(acc.getAccountName())) {
@@ -49,6 +53,7 @@ public class Manage_Account {
 
     }
 
+    @Override
     public boolean findAccount_Number(long name) {
         for(Account acc : accList) {
             if(name == acc.getAccountNumber()) {
@@ -59,6 +64,7 @@ public class Manage_Account {
 
     }
 
+    @Override
     public void addAccount(Scanner sc) {
         Account acc;
         System.out.println();
@@ -77,6 +83,7 @@ public class Manage_Account {
         }
     }
 
+    @Override
     public void SortList() {
         Collections.sort(accList, new Comparator<Account>() {
             @Override
@@ -86,7 +93,7 @@ public class Manage_Account {
         });
     }
 
-
+    @Override
     public void deposit_money(Scanner sc) {
         long name = sc.nextLong();
         boolean found1 = false;
@@ -102,6 +109,7 @@ public class Manage_Account {
         }
     }
 
+    @Override
     public void withdraw_money(Scanner sc) {
         long name = sc.nextLong();
         boolean found2 = false;
@@ -118,7 +126,7 @@ public class Manage_Account {
         }
     }
 
-
+    @Override
     public void transfer_money(Scanner sc) {
         long name = sc.nextLong();
         boolean found3 = false;
@@ -136,10 +144,12 @@ public class Manage_Account {
         }
     }
 
+    @Override
     public boolean isEmpty() {
         return accList.isEmpty();
     }
 
+    @Override
     public void deleteAccount(Scanner sc) {
         long name = sc.nextLong();
         boolean found4 = false;

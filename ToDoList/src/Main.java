@@ -106,10 +106,14 @@ public class Main {
                                 if (completed.equals("yes")) {
                                     found = true;
                                     todo[i].complete();
+                                    System.out.println();
                                     todo[i].print();
                                     System.out.println("Task " + todo[i].getTask().toUpperCase() + " completed");
                                 } else {
+                                    System.out.println();
+                                    found = true;
                                     todo[i].uncomplete();
+                                    System.out.println();
                                     todo[i].print();
                                     System.out.println("Task " + todo[i].getTask().toUpperCase() + " not completed");
                                 }

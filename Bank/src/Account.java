@@ -2,7 +2,7 @@ import java.text.NumberFormat;
 import java.util.Scanner;
 import java.util.*;
 
-public class Account {
+public class Account implements Manage_Acc {
     private long accountNumber;
     private String accountName;
     private double amount;
@@ -49,6 +49,7 @@ public class Account {
         return "Account Number: " + accountNumber + "\nAccount Name: " + accountName + "\nAmount: " + amount_str;
     }
 
+    @Override
     public void input(Scanner sc){
         System.out.print("Enter your account number: ");
         accountNumber = sc.nextLong();
@@ -59,13 +60,14 @@ public class Account {
         amount = sc.nextDouble();
     }
 
-
+    @Override
     public void output(){
         NumberFormat currencyEN = NumberFormat.getCurrencyInstance();
         String amount_str = currencyEN.format(amount);
         System.out.printf("| %-20d | %-20s | %-20s |\n", accountNumber, accountName.toUpperCase(), amount_str);
     }
 
+    @Override
     public void depositMoney(Scanner sc) {
         double deposit;
         System.out.println();
@@ -86,6 +88,7 @@ public class Account {
         }
     }
 
+    @Override
     public void withdrawMoney(Scanner sc) {
         double withdraw;
         double withdrawal_fee = 1.100;
@@ -108,6 +111,7 @@ public class Account {
         }
     }
 
+    @Override
     public void transferMoney(Scanner sc) {
         String transfer_str;
         double transfer_number;
